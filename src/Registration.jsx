@@ -2,6 +2,7 @@ import React from "react";
 import img from "./assets/img1.jpg";
 import "./RegistrationStyle.css";
 import { useFormik } from "formik";
+import { signUpScheme } from "./schemas";
 
 const initialValues = {
   name: "",
@@ -11,10 +12,12 @@ const initialValues = {
 };
 
 const Registration = () => {
-  const {values,errors,handleBlur,handleChange,handleSubmit} = useFormik({
+  const {values,errors,handleBlur,touched,handleChange,handleSubmit} = useFormik({
     initialValues: initialValues,
-    onSubmit: (values) => {
+    validationSchema:signUpScheme,
+    onSubmit: (values,action) => {
       console.log(values)
+      action.resetForm();
     },
   });
 
@@ -41,6 +44,7 @@ const Registration = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              {errors.name && touched.name ?<p className="form-error">{errors.name}</p>:null}
             </div>
             <div className="input-block">
               <label htmlFor="email" className="input-label">
@@ -56,6 +60,7 @@ const Registration = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              {errors.email && touched.email ?<p className="form-error">{errors.email}</p>:null}
             </div>
             <div className="input-block">
               <label htmlFor="password" className="input-label">
@@ -71,6 +76,7 @@ const Registration = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              {errors.password && touched.password ?<p className="form-error">{errors.password}</p>:null}
             </div>
             <div className="input-block">
               <label htmlFor="confirm_password" className="input-label">
@@ -86,6 +92,7 @@ const Registration = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              {errors.confirm_password && touched.confirm_password ?<p className="form-error">{errors.confirm_password}</p>:null}
             </div>
             <button className="registration" type="submit">
               REGISTER

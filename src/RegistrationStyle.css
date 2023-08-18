@@ -10,17 +10,17 @@
 
 
 .regForm{
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     background-color: rgb(255, 255, 255);
     display: flex;
-    
+    border-radius: 10px;
 }
 
 .form{
     width: 50%;
     height: 100%;
-    padding: 3rem;
+    padding:4rem 3rem;
     
 }
 
@@ -28,6 +28,7 @@
     width: 50%;
     height: 100%;
     transition: 0.1s ease-in;
+    border-radius: 0 10px 10px 0;
 }
 
 .img img{
@@ -57,7 +58,7 @@
 
 .registration{
     margin: 5px 0;
-    padding: 10px;
+    padding: 10px 12px;
     background-color:rgb(241, 213, 255) ;
     border: none;
     border-radius: 3px;
@@ -72,4 +73,10 @@
 .registration:hover{
     background-color: rgb(198, 120, 237);
     cursor: pointer;
+}
+
+
+.form-error{
+    color: red;
+    font-size: 12px;
 }
