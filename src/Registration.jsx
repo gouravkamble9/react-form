@@ -3,6 +3,8 @@ import img from "./assets/img1.jpg";
 import "./RegistrationStyle.css";
 import { useFormik } from "formik";
 import { signUpScheme } from "./schemas";
+import { Link } from "react-router-dom";
+
 
 const initialValues = {
   name: "",
@@ -99,7 +101,8 @@ const Registration = () => {
             </button>
           </form>
           <p className="signin">
-            <strong>Already have an account?</strong>Sign In now
+            <strong>Already have an account? </strong>
+            <a href="/signup">Sign In</a>
           </p>
         </div>
         <div className="img">
