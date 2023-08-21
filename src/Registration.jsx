@@ -73,7 +73,7 @@ const Registration = () => {
                 autoComplete="off"
                 name="password"
                 id="password"
-                placeholder="password"
+                placeholder="Password"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
