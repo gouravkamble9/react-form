@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "./assets/img1.jpg";
 import "./RegistrationStyle.css";
 import { useFormik } from "formik";
@@ -14,14 +14,19 @@ const initialValues = {
 };
 
 const Registration = () => {
+  const [registrationSuccess,setRegistrationSuccess]=useState(false);
+
   const {values,errors,handleBlur,touched,handleChange,handleSubmit} = useFormik({
     initialValues: initialValues,
     validationSchema:signUpScheme,
     onSubmit: (values,action) => {
       console.log(values)
       action.resetForm();
+      setRegistrationSuccess(true);
+
     },
   });
+
 
   
 
@@ -99,6 +104,9 @@ const Registration = () => {
             <button className="registration" type="submit">
               REGISTER
             </button>
+            {registrationSuccess && (
+            <p className="success-message">Registration Successful! You can now sign in.</p>
+            )}
           </form>
           <p className="signin">
             <strong>Already have an account? </strong>
